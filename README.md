@@ -22,6 +22,7 @@ This project implements a PointNet-style neural network for 3D object classifica
 |-- sample_pc.py         # Point-cloud sampling demo script
 |-- run.sh               # Convenience script for training or testing
 |-- requirements.txt     # Python dependencies
+|-- docs/images/         # Selected figures used by this README
 |-- README.md            # Project documentation
 `-- .gitignore           # Files excluded from Git
 ```
@@ -144,6 +145,63 @@ Training data augmentation includes:
 - random translation
 - jitter noise
 - random point dropout
+
+![PointNet-style model architecture](docs/images/model-architecture.png)
+
+## Results
+
+The final model achieved an overall test accuracy of **86.23%** on ModelNet10.
+
+| Class | Accuracy |
+| --- | ---: |
+| bathtub | 76.00% |
+| bed | 88.00% |
+| chair | 99.00% |
+| desk | 62.79% |
+| dresser | 86.05% |
+| monitor | 89.00% |
+| night_stand | 76.74% |
+| sofa | 93.00% |
+| table | 94.00% |
+| toilet | 88.00% |
+
+The strongest classes were `chair`, `table`, and `sofa`. These categories have relatively distinctive global geometry, such as chair backs and legs, table surfaces, and sofa-like block structures. The weakest class was `desk`, which is often confused with visually similar objects such as tables or dressers. `bathtub` and `night_stand` also had lower accuracy because their point-cloud shapes can overlap with beds or dressers after sampling.
+
+### Sampled Point Clouds
+
+The dataloader samples points from the mesh surface before passing the point cloud to the model. The figure below shows an example mesh with sampled points.
+
+![Sampled point cloud from a mesh](docs/images/sample-point-cloud.png)
+
+### Augmentation Example
+
+Training uses random geometric augmentation to improve robustness. The example below shows a point cloud after applying all augmentations.
+
+![Point cloud with all augmentations applied](docs/images/augmentation-example.png)
+
+### Prediction Examples
+
+Correct chair prediction:
+
+- Top 1: chair, 99.97%
+- Top 2: toilet, 0.01%
+- Top 3: night_stand, 0.01%
+
+![Correct chair prediction example](docs/images/correct-chair-example.png)
+
+One representative misclassification from the report is a desk-like sample predicted as table:
+
+- Top 1: table, 95.71%
+- Top 2: desk, 4.24%
+- Top 3: bed, 0.03%
+
+![Misclassified desk example](docs/images/misclassified-example.png)
+
+## Notes
+
+- `best_model.pth` is useful for quick testing, but it is optional for the repository. If the file is too large or you want a cleaner GitHub repo, upload it to Google Drive or another storage service and add the link here.
+- `ModelNet10/` should usually not be committed because it is about 2.2 GB.
+- `result/` contains generated images, point clouds, and mesh exports. It is useful for reports but not required to run the project.
 
 ## Reference
 
