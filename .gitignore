@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Dataset and generated outputs
+ModelNet10/
+result/
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# Local experiment logs
+runs/
+logs/
+wandb/
+
+# Editable report sources
+*.docx
