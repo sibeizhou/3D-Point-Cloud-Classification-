@@ -189,19 +189,6 @@ Correct chair prediction:
 
 ![Correct chair prediction example](docs/images/correct-chair-example.png)
 
-One representative misclassification from the report is a desk-like sample predicted as table:
-
-- Top 1: table, 95.71%
-- Top 2: desk, 4.24%
-- Top 3: bed, 0.03%
-
-![Misclassified desk example](docs/images/misclassified-example.png)
-
-## Notes
-
-- `best_model.pth` is useful for quick testing, but it is optional for the repository. If the file is too large or you want a cleaner GitHub repo, upload it to Google Drive or another storage service and add the link here.
-- `ModelNet10/` should usually not be committed because it is about 2.2 GB.
-- `result/` contains generated images, point clouds, and mesh exports. It is useful for reports but not required to run the project.
 
 ## Reference
 
