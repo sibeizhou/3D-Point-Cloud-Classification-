@@ -26,43 +26,6 @@ This project implements a PointNet-style neural network for 3D object classifica
 `-- .gitignore           # Files excluded from Git
 ```
 
-The following files or folders may exist locally but are not required in the GitHub repository:
-
-```text
-ModelNet10/              # Full dataset, about 2.2 GB
-result/                  # Generated visualizations and exported point clouds
-best_model.pth           # Trained model checkpoint
-__pycache__/             # Python cache files
-.idea/                   # IDE settings
-Report.docx              # Editable report document
-```
-
-## What to Upload to GitHub
-
-Recommended files to upload:
-
-- `main.py`
-- `model.py`
-- `dataloader.py`
-- `utils.py`
-- `eval.py`
-- `sample_pc.py`
-- `run.sh`
-- `requirements.txt`
-- `README.md`
-- `.gitignore`
-- `Report.pdf`, if the assignment submission requires the final report
-- `A4.pdf`, only if you want to include the assignment handout
-
-Files that are not required for the code to run after setup:
-
-- `ModelNet10/`: too large for normal GitHub upload; users can download it separately
-- `result/`: generated outputs; the program can recreate them
-- `best_model.pth`: optional pretrained checkpoint; include a download link instead of committing it
-- `Report.docx`: optional source document; `Report.pdf` is usually enough
-- `.idea/`: local PyCharm or IntelliJ settings
-- `__pycache__/`: Python runtime cache
-
 ## Setup
 
 Create and activate a Python environment. Python 3.9 was used for this project.
@@ -181,12 +144,6 @@ Training data augmentation includes:
 - random translation
 - jitter noise
 - random point dropout
-
-## Notes
-
-- `best_model.pth` is useful for quick testing, but it is optional for the repository. If the file is too large or you want a cleaner GitHub repo, upload it to Google Drive or another storage service and add the link here.
-- `ModelNet10/` should usually not be committed because it is about 2.2 GB.
-- `result/` contains generated images, point clouds, and mesh exports. It is useful for reports but not required to run the project.
 
 ## Reference
 
