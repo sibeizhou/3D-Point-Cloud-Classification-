@@ -2,6 +2,8 @@
 
 This project implements a PointNet-style neural network for 3D object classification on the ModelNet10 dataset. It samples point clouds from mesh files, applies data augmentation during training, evaluates classification accuracy, and exports sample predictions for visualization.
 
+![Project Description](docs/images/description.png)
+
 ## Project Overview
 
 - Dataset: ModelNet10
